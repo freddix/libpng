@@ -1,16 +1,15 @@
 Summary:	PNG library
 Name:		libpng
-Version:	1.5.12
+Version:	1.5.14
 Release:	1
 Epoch:		2
 License:	distributable
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libpng/%{name}-%{version}.tar.xz
-# Source0-md5:	0fd51add1da6a0e470e0c726c59171b9
+# Source0-md5:	94284b01d62ca43c5eb3f6702db08ed8
 Patch0:		%{name}-pngminus.patch
 # https://sourceforge.net/projects/apng/files/libpng/
 Patch1:		http://downloads.sourceforge.net/libpng-apng/%{name}-%{version}-apng.patch.gz
-Patch2:		%{name}-apng-symbols.patch
 URL:		http://www.libpng.org/pub/png/libpng.html
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -50,7 +49,6 @@ from PNM files.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %if 0
