@@ -1,12 +1,12 @@
 Summary:	PNG library
 Name:		libpng
-Version:	1.5.17
+Version:	1.6.8
 Release:	1
 Epoch:		2
 License:	distributable
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libpng/%{name}-%{version}.tar.xz
-# Source0-md5:	6509aba334bbd87613d2d353a2af44d6
+# Source0-md5:	51ce71a1642cdde1f4485a7ff82193c0
 Patch0:		%{name}-pngminus.patch
 # https://sourceforge.net/projects/apng/files/libpng/
 Patch1:		http://downloads.sourceforge.net/libpng-apng/%{name}-%{version}-apng.patch.gz
@@ -77,6 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install contrib/pngminus/{png2pnm,pnm2png} $RPM_BUILD_ROOT%{_bindir}
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -86,15 +88,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ANNOUNCE CHANGES README LICENSE
-%attr(755,root,root) %ghost %{_libdir}/libpng15.so.??
-%attr(755,root,root) %{_libdir}/libpng15.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libpng16.so.??
+%attr(755,root,root) %{_libdir}/libpng16.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %doc *.txt
 %attr(755,root,root) %{_bindir}/libpng*-config
 %attr(755,root,root) %{_libdir}/libpng*.so
-%{_includedir}/libpng15
+%{_includedir}/libpng16
 %{_includedir}/png*.h
 %{_pkgconfigdir}/libpng*.pc
 
@@ -108,6 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files progs
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/png-fix-itxt
 %attr(755,root,root) %{_bindir}/png2pnm
+%attr(755,root,root) %{_bindir}/pngfix
 %attr(755,root,root) %{_bindir}/pnm2png
 
