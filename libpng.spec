@@ -1,12 +1,12 @@
 Summary:	PNG library
 Name:		libpng
-Version:	1.6.8
+Version:	1.6.9
 Release:	1
 Epoch:		2
 License:	distributable
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libpng/%{name}-%{version}.tar.xz
-# Source0-md5:	51ce71a1642cdde1f4485a7ff82193c0
+# Source0-md5:	14e037c5c9f1db16844760285ad5c2d6
 Patch0:		%{name}-pngminus.patch
 # https://sourceforge.net/projects/apng/files/libpng/
 Patch1:		http://downloads.sourceforge.net/libpng-apng/%{name}-%{version}-apng.patch.gz
@@ -64,7 +64,7 @@ from PNM files.
 	CC="%{__cc}"				\
 	LIBPATH=%{_libdir}			\
 	OPT_FLAGS="%{rpmcppflags} %{rpmcflags}"	\
-	PNGLIB="-L../../.libs -lpng15"
+	PNGLIB="-L../../.libs -lpng16"
 
 %check
 %{__make} -j1 check

@@ -1,11 +1,12 @@
---- libpng-1.2.10/contrib/pngminus/makefile.std.orig	2006-04-23 20:45:35.000000000 +0200
-+++ libpng-1.2.10/contrib/pngminus/makefile.std	2006-05-20 00:07:36.332062500 +0200
-@@ -12,20 +12,20 @@
- #PNGLIB = -L$(PNGPATH)/lib -lpng14
- #PNGLIBS = $(PNGPATH)/lib/libpng14.a
+diff -aurN libpng-1.6.9.orig/contrib/pngminus/makefile.std libpng-1.6.9/contrib/pngminus/makefile.std
+--- libpng-1.6.9.orig/contrib/pngminus/makefile.std	2014-02-17 14:49:49.509259976 +0100
++++ libpng-1.6.9/contrib/pngminus/makefile.std	2014-02-17 14:52:52.106276816 +0100
+@@ -12,21 +12,21 @@
+ #PNGLIB = -L$(PNGPATH)/lib -lpng16
+ #PNGLIBS = $(PNGPATH)/lib/libpng16.a
  PNGINC = -I../..
 -PNGLIB = -L../.. -lpng
-+PNGLIB = -L../.. -L../../.libs -lpng14
++PNGLIB = -L../.. -L../../.libs -lpng16
  PNGLIBS = ../../libpng.a
  
  #ZPATH = /usr/local
@@ -15,25 +16,25 @@
 -ZINC = -I../../../zlib
 -ZLIB = -L../../../zlib -lz
 -ZLIBS = ../../../zlib/libz.a
-+ZINC = 
++ZINC =
 +ZLIB = -lz
 +ZLIBS = -lz
  
--CFLAGS=$(PNGINC) $(ZINC)
-+CFLAGS=$(OPT_FLAGS) $(PNGINC) $(ZINC)
+ CPPFLAGS=$(PNGINC) $(ZINC)
+-CFLAGS=
++CFLAGS=$(OPT_FLAGS)
  LDLIBS=$(PNGLIB) $(ZLIB)
 -LDLIBSS=$(PNGLIBS) $(ZLIBS)
 +LDLIBSS=$(LD_FLAGS) $(PNGLIBS) $(ZLIBS)
  C=.c
  O=.o
  L=.a
-@@ -33,8 +33,7 @@
- 
+@@ -35,7 +35,7 @@
  # dependencies
  
--#all: png2pnm$(E) pnm2png$(E)
+ #all: png2pnm$(E) pnm2png$(E)
 -all: png2pnm$(E) pnm2png$(E) png2pnm-static$(E) pnm2png-static$(E)
 +all: png2pnm$(E) pnm2png$(E)
  
  png2pnm$(O): png2pnm$(C)
- 	$(CC) -c $(CFLAGS) png2pnm$(C)
+ 	$(CC) -c $(CPPFLAGS) $(CFLAGS) png2pnm$(C)
