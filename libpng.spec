@@ -1,12 +1,12 @@
 Summary:	PNG library
 Name:		libpng
-Version:	1.6.10
+Version:	1.6.13
 Release:	1
 Epoch:		2
 License:	distributable
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/libpng/%{name}-%{version}.tar.xz
-# Source0-md5:	5f414b20f683b1d96b163c89e3eff768
+# Source0-md5:	9822c25466f060142359f80ed142c9e5
 Patch0:		%{name}-pngminus.patch
 # https://sourceforge.net/projects/apng/files/libpng/
 Patch1:		http://downloads.sourceforge.net/libpng-apng/%{name}-%{version}-apng.patch.gz
